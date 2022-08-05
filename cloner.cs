@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,7 +20,7 @@ namespace file_cloning
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Kopyala(textBox1.Text, textBox1.Text+@"\Output", true);
+            Kopyala(textBox1.Text, textBox2.Text+@"\Output", true);
             MessageBox.Show("Kopyalama Başarılı");
         }
         protected void Kopyala(string Prmt1, string prmt2, bool prmt3)
@@ -47,6 +47,31 @@ namespace file_cloning
                     Kopyala(bilgi.FullName, path1, true);
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult result = folderBrowserDialog1.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                textBox1.Text = folderBrowserDialog1.SelectedPath;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DialogResult result = folderBrowserDialog1.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                textBox2.Text = folderBrowserDialog1.SelectedPath;
+            }
+        }
+
+        private void cloner_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
